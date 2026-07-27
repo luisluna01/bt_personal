@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="Untitled">
+    <Fallback>
+      <ReactiveSequence>
+        <ReactiveFallback>
+          <BallFound/>
+          <FindBall/>
+        </ReactiveFallback>
+        <ReactiveFallback>
+          <BallClose/>
+          <ApproachBall/>
+        </ReactiveFallback>
+        <ReactiveFallback>
+          <AlwaysSuccess/>
+        </ReactiveFallback>
+        <ReactiveFallback>
+          <AlwaysSuccess/>
+        </ReactiveFallback>
+        <ReactiveFallback>
+          <AlwaysSuccess/>
+        </ReactiveFallback>
+      </ReactiveSequence>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="ApproachBall"
+            editable="true"/>
+    <Condition ID="BallClose"
+               editable="true"/>
+    <Condition ID="BallFound"
+               editable="true"/>
+    <Action ID="FindBall"
+            editable="true"/>
+  </TreeNodesModel>
+
+</root>

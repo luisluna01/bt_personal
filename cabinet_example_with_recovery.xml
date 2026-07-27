@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="CabinetExampleWithRecovery">
+    <Sequence>
+      <ReactiveSequence>
+        <ReactiveFallback>
+          <LowBattery battery_level="10"/>
+          <Recharge/>
+        </ReactiveFallback>
+        <ReactiveFallback>
+          <IsNearCabinet/>
+          <ApproachCabinet/>
+        </ReactiveFallback>
+        <ReactiveFallback>
+          <IsCabinetOpen/>
+          <OpenCabinet/>
+        </ReactiveFallback>
+        <ReactiveFallback>
+          <IsCupGrasped/>
+          <GrabCup/>
+        </ReactiveFallback>
+      </ReactiveSequence>
+      <PlaceCup/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="ApproachCabinet"
+            editable="true"/>
+    <Action ID="GrabCup"
+            editable="true"/>
+    <Condition ID="IsCabinetOpen"
+               editable="true"/>
+    <Condition ID="IsCupGrasped"
+               editable="true"/>
+    <Condition ID="IsNearCabinet"
+               editable="true"/>
+    <Condition ID="LowBattery"
+               editable="true">
+      <input_port name="battery_level"
+                  default="10"
+                  type="double"/>
+    </Condition>
+    <Action ID="OpenCabinet"
+            editable="true"/>
+    <Action ID="PlaceCup"
+            editable="true"/>
+    <Action ID="Recharge"
+            editable="true"/>
+  </TreeNodesModel>
+
+</root>

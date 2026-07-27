@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="SimpleCabinetExample">
+    <Sequence>
+      <Undock/>
+      <ApproachCabinet/>
+      <OpenCabinet/>
+      <GrabCup/>
+      <PlaceCup/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="ApproachCabinet"
+            editable="true"/>
+    <Action ID="GrabCup"
+            editable="true"/>
+    <Action ID="OpenCabinet"
+            editable="true"/>
+    <Action ID="PlaceCup"
+            editable="true"/>
+    <Action ID="Undock"
+            editable="true"/>
+  </TreeNodesModel>
+
+</root>

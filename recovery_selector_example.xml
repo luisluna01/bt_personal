@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="RecoverySelectorExample">
+    <RecoverySelector failures=""
+                      case_1=""
+                      case_2=""
+                      case_N="">
+      <Recovery1/>
+      <Recovery2/>
+      <RecoveryN/>
+      <Default/>
+    </RecoverySelector>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="Default"
+            editable="true"/>
+    <Action ID="Recovery1"
+            editable="true"/>
+    <Action ID="Recovery2"
+            editable="true"/>
+    <Action ID="RecoveryN"
+            editable="true"/>
+    <Control ID="RecoverySelector"
+             editable="true">
+      <input_port name="failures"/>
+      <input_port name="case_1"/>
+      <input_port name="case_2"/>
+      <input_port name="case_N"/>
+    </Control>
+  </TreeNodesModel>
+
+</root>

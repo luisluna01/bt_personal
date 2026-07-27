@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" project_name="ThesisExamples">
+    <include path="ball_example.xml"/>
+    <include path="cabinet_example_with_recovery.xml"/>
+    <include path="complex_recovery_cabinet_example.xml"/>
+    <include path="fridge_example.xml"/>
+    <include path="recovery_selector_example.xml"/>
+    <include path="simple_cabinet_example.xml"/>
+    <!-- Description of Node Models (used by Groot) -->
+    <TreeNodesModel>
+        <Action ID="ApproachBall" editable="true"/>
+        <Action ID="ApproachCabinet" editable="true"/>
+        <Action ID="ApproachFridge" editable="true"/>
+        <Condition ID="BallClose" editable="true"/>
+        <Condition ID="BallFound" editable="true"/>
+        <Action ID="CloseFridge" editable="true"/>
+        <Action ID="CloseGripper" editable="true"/>
+        <Action ID="Default" editable="true"/>
+        <Action ID="Dock" editable="true"/>
+        <Action ID="FindBall" editable="true"/>
+        <Action ID="GrabCan" editable="true"/>
+        <Action ID="GrabCup" editable="true"/>
+        <Condition ID="IsCabinetOpen" editable="true"/>
+        <Condition ID="IsCabinetUnlocked" editable="true"/>
+        <Condition ID="IsCupGrasped" editable="true"/>
+        <Condition ID="IsDocked" editable="true"/>
+        <Condition ID="IsNearCabinet" editable="true"/>
+        <Condition ID="IsStanding" editable="true"/>
+        <Condition ID="LowBattery" editable="true">
+            <input_port name="battery_level" default="10" type="double"/>
+        </Condition>
+        <Action ID="MoveHandToCan" editable="true"/>
+        <Action ID="OpenCabinet" editable="true"/>
+        <Action ID="OpenFridge" editable="true"/>
+        <Action ID="OpenGripper" editable="true"/>
+        <Action ID="PlaceCup" editable="true"/>
+        <Action ID="Recharge" editable="true"/>
+        <Action ID="Recovery1" editable="true"/>
+        <Action ID="Recovery2" editable="true"/>
+        <Action ID="RecoveryN" editable="true"/>
+        <Control ID="RecoverySelector" editable="true">
+            <input_port name="failures"/>
+            <input_port name="case_1"/>
+            <input_port name="case_2"/>
+            <input_port name="case_N"/>
+        </Control>
+        <Action ID="RetractArm" editable="true"/>
+        <Action ID="SelfCorrect" editable="true"/>
+        <Action ID="Undock" editable="true"/>
+        <Action ID="UnlockCabinet" editable="true"/>
+    </TreeNodesModel>
+</root>
