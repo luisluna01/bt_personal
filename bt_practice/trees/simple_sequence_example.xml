@@ -1,0 +1,10 @@
+<root BTCPP_format="4">
+    <BehaviorTree ID="SimpleSequenceExample">
+        <Sequence>
+            <Print message="First"/>
+            <Print message="Second"/>
+            <Print message="Third"/>
+            <Print message="Fourth"/>
+        </Sequence>
+    </BehaviorTree>
+</root>

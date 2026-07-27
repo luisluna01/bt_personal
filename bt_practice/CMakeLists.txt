@@ -5,9 +5,38 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# find dependencies
+# Find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(behaviortree_cpp REQUIRED)
+find_package(ament_index_cpp REQUIRED)
+
+# Add executable
+add_executable(execute_simple_sequence src/execute_simple_sequence.cpp
+  src/behaviors/print.cpp
+)
+
+# Add include directories
+target_include_directories(execute_simple_sequence PUBLIC
+  include
+)
+
+# Add dependencies to executable
+ament_target_dependencies(execute_simple_sequence PUBLIC
+  ament_index_cpp
+  behaviortree_cpp
+)
+
+# Install trees
+install(
+  DIRECTORY trees
+  DESTINATION share/${PROJECT_NAME}
+)
+
+# Install executable
+install(
+  TARGETS execute_simple_sequence
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
