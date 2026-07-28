@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root BTCPP_format="4">
-  <BehaviorTree ID="ChatteringExample">
+  <BehaviorTree ID="ComplexCabinetRechargeRecovery">
     <ReactiveSequence>
       <ReactiveFallback>
         <BatteryCharged battery_level="80"/>

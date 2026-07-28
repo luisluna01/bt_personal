@@ -26,6 +26,13 @@
     </ReactiveSequence>
   </BehaviorTree>
 
+  <BehaviorTree ID="CabinetRechargeRecovery">
+    <ReactiveFallback>
+      <BatteryCharged battery_level="80"/>
+      <Recharge/>
+    </ReactiveFallback>
+  </BehaviorTree>
+
   <!-- Description of Node Models (used by Groot) -->
   <TreeNodesModel>
     <Action ID="ApproachCabinet"
