@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root BTCPP_format="4">
   <BehaviorTree ID="ComplexCabinetRechargeRecovery">
-    <ReactiveSequence>
-      <ReactiveFallback>
-        <BatteryCharged battery_level="80"/>
+    <ReactiveFallback>
+      <ReactiveSequence>
+        <LowBattery battery_level="20"/>
         <ReactiveFallback>
-          <ReactiveSequence>
+          <ReactiveFallback>
             <NearDock/>
             <Dock/>
-          </ReactiveSequence>
+          </ReactiveFallback>
           <ApproachChargingStation/>
         </ReactiveFallback>
-      </ReactiveFallback>
+      </ReactiveSequence>
       <ReactiveFallback>
         <IsUndocked/>
         <Undock/>
       </ReactiveFallback>
-    </ReactiveSequence>
+    </ReactiveFallback>
   </BehaviorTree>
 
   <BehaviorTree ID="ComplexRecoveryCabinetExample">
@@ -85,6 +85,12 @@
                editable="true"/>
     <Condition ID="IsUndocked"
                editable="true"/>
+    <Condition ID="LowBattery"
+               editable="true">
+      <input_port name="battery_level"
+                  default="10"
+                  type="double"/>
+    </Condition>
     <Condition ID="NearDock"
                editable="true"/>
     <Action ID="OpenCabinet"

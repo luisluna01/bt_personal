@@ -3,10 +3,10 @@
   <BehaviorTree ID="CabinetExampleWithRecovery">
     <ReactiveSequence>
       <ReactiveFallback>
-        <BatteryCharged battery_level="80"/>
-        <Recharge/>
-      </ReactiveFallback>
-      <ReactiveFallback>
+        <ReactiveSequence>
+          <LowBattery battery_level="20"/>
+          <Recharge/>
+        </ReactiveSequence>
         <NearCup/>
         <ApproachCup/>
       </ReactiveFallback>
@@ -27,10 +27,10 @@
   </BehaviorTree>
 
   <BehaviorTree ID="CabinetRechargeRecovery">
-    <ReactiveFallback>
-      <BatteryCharged battery_level="80"/>
+    <ReactiveSequence>
+      <LowBattery battery_level="20"/>
       <Recharge/>
-    </ReactiveFallback>
+    </ReactiveSequence>
   </BehaviorTree>
 
   <!-- Description of Node Models (used by Groot) -->
@@ -39,18 +39,18 @@
             editable="true"/>
     <Action ID="ApproachCup"
             editable="true"/>
-    <Condition ID="BatteryCharged"
-               editable="true">
-      <input_port name="battery_level"
-                  default="80"
-                  type="double"/>
-    </Condition>
     <Condition ID="CabinetOpen"
                editable="true"/>
     <Condition ID="CupGrasped"
                editable="true"/>
     <Action ID="GrabCup"
             editable="true"/>
+    <Condition ID="LowBattery"
+               editable="true">
+      <input_port name="battery_level"
+                  default="10"
+                  type="double"/>
+    </Condition>
     <Condition ID="NearCabinet"
                editable="true"/>
     <Condition ID="NearCup"
