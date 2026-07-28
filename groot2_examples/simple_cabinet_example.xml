@@ -3,9 +3,10 @@
   <BehaviorTree ID="SimpleCabinetExample">
     <Sequence>
       <Undock/>
+      <ApproachCup/>
+      <GrabCup/>
       <ApproachCabinet/>
       <OpenCabinet/>
-      <GrabCup/>
       <PlaceCup/>
     </Sequence>
   </BehaviorTree>
@@ -13,6 +14,8 @@
   <!-- Description of Node Models (used by Groot) -->
   <TreeNodesModel>
     <Action ID="ApproachCabinet"
+            editable="true"/>
+    <Action ID="ApproachCup"
             editable="true"/>
     <Action ID="GrabCup"
             editable="true"/>
