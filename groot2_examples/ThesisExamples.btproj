@@ -9,6 +9,7 @@
     <TreeNodesModel>
         <Action ID="ApproachBall" editable="true"/>
         <Action ID="ApproachCabinet" editable="true"/>
+        <Action ID="ApproachChargingStation" editable="true"/>
         <Action ID="ApproachCup" editable="true"/>
         <Action ID="ApproachFridge" editable="true"/>
         <Condition ID="BallClose" editable="true"/>
@@ -38,6 +39,7 @@
         <Action ID="MoveHandToCan" editable="true"/>
         <Condition ID="NearCabinet" editable="true"/>
         <Condition ID="NearCup" editable="true"/>
+        <Condition ID="NearDock" editable="true"/>
         <Action ID="OpenCabinet" editable="true"/>
         <Action ID="OpenFridge" editable="true"/>
         <Action ID="OpenGripper" editable="true"/>
