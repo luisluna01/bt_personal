@@ -4,7 +4,13 @@
     <ReactiveSequence>
       <ReactiveFallback>
         <BatteryCharged battery_level="80"/>
-        <Dock/>
+        <ReactiveFallback>
+          <ReactiveSequence>
+            <NearDock/>
+            <Dock/>
+          </ReactiveSequence>
+          <ApproachChargingStation/>
+        </ReactiveFallback>
       </ReactiveFallback>
       <ReactiveFallback>
         <IsUndocked/>
@@ -55,6 +61,8 @@
   <TreeNodesModel>
     <Action ID="ApproachCabinet"
             editable="true"/>
+    <Action ID="ApproachChargingStation"
+            editable="true"/>
     <Condition ID="BatteryCharged"
                editable="true">
       <input_port name="battery_level"
@@ -76,6 +84,8 @@
     <Condition ID="IsStanding"
                editable="true"/>
     <Condition ID="IsUndocked"
+               editable="true"/>
+    <Condition ID="NearDock"
                editable="true"/>
     <Action ID="OpenCabinet"
             editable="true"/>
