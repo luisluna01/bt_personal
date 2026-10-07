@@ -2,7 +2,7 @@
 #include "ament_index_cpp/get_package_share_directory.hpp"
 
 // Print behavior
-#include "bt_practice/behaviors/print.hpp"
+#include "bt_cpp_practice/behaviors/print.hpp"
 
 
 // Tree executer for the SimpleSequenceExample behavior tree
@@ -14,7 +14,7 @@ int main()
   factory.registerNodeType<Print>("Print");
 
   // Register behaivor tree
-  std::string share_path = ament_index_cpp::get_package_share_directory("bt_practice");
+  std::string share_path = ament_index_cpp::get_package_share_directory("bt_cpp_practice");
   factory.registerBehaviorTreeFromFile(share_path + "/trees/simple_sequence_example.xml");
 
   // Create and run tree

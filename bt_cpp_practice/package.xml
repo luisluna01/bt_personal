@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>bt_practice</name>
+  <name>bt_cpp_practice</name>
   <version>0.0.0</version>
   <description>ROS2 C++ Humble pkg for practicing BehaviorTree.CPP v4 concepts</description>
   <maintainer email="luisluna12@utexas.edu">Luis Luna</maintainer>
