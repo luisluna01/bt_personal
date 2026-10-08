@@ -16,24 +16,25 @@ def main():
     share_path = get_package_share_directory('py_trees_practice')
     root = parse_behaviour_tree_xml(
         os.path.join(share_path, 'trees', 'simple_sequence_example.xml'),
-        main_tree_id='SimpleSequenceExample',
+        main_tree_id='ReactiveSequenceExample',
     )
+
+    # Create Tree
     tree = py_trees.trees.BehaviourTree(root)
     tree.setup()
 
     # Tick until the tree is no longer RUNNING
-    print('---tick---')
-    tree.tick()
-    print('---end of tick---\n')
-    while tree.root.status == py_trees.common.Status.RUNNING:
+    tree_running = True
+    while tree_running:
+    # while tree.root.status == py_trees.common.Status.RUNNING:
         time.sleep(1.0)
 
-        print('---tick---')
-        tree.tick()
-        print('---end of tick---\n')
-    
-    print(f'Tree finished with {tree.root.status}')
+        print('\n---tick---')
+        tree.tick() 
+        print('---end of tick---')
+        print(f'Tree Status:{tree.root.status.value}')
 
+        tree_running = tree.root.status == py_trees.common.Status.RUNNING
 
 
 if __name__ == '__main__':

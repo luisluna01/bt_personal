@@ -1,6 +1,6 @@
-<root BTCPP_format="4" main_tree_to_execute="SimpleSequenceExample">
-    <BehaviorTree ID="SimpleSequenceExample">
-        <Sequence>
+<root BTCPP_format="4" main_tree_to_execute="ReactiveSequenceExample">
+    <BehaviorTree ID="ReactiveSequenceExample">
+        <Sequence memory="false">
             <DummyCondition name="ConditionA" condition_bool="True"/>
             <DummyCondition name="ConditionB" condition_bool="True"/>
             <DummyCondition name="ConditionC" condition_bool="True"/>
