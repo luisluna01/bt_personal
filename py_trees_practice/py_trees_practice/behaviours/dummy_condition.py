@@ -23,8 +23,6 @@ class DummyCondition(BehaviourWithPorts):
 
     def update(self) -> py_trees.common.Status:
         if self.get_input('condition_bool'):
-            self.ros_logger.info(f'[{self.name}]: condition is true')
             return py_trees.common.Status.SUCCESS
 
-        self.ros_logger.info(f'[{self.name}]: condition is false')
         return py_trees.common.Status.FAILURE
