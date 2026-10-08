@@ -17,10 +17,14 @@ class DummyCondition(BehaviourWithPorts):
     def output_ports(cls):
         return {}
 
+    def setup(self, **kwargs) -> None:
+        # py_trees_ros passes the tree's ROS node to every behaviour's setup()
+        self.ros_logger = kwargs['node'].get_logger()
+
     def update(self) -> py_trees.common.Status:
         if self.get_input('condition_bool'):
-            print(f'[{self.name}]: condition is true')
+            self.ros_logger.info(f'[{self.name}]: condition is true')
             return py_trees.common.Status.SUCCESS
 
-        print(f'[{self.name}]: condition is false')
+        self.ros_logger.info(f'[{self.name}]: condition is false')
         return py_trees.common.Status.FAILURE

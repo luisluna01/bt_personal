@@ -32,8 +32,6 @@ def main():
     tree.setup(node_name='reactive_sequence_example')
 
     def stop_when_done(tree):
-        print(f'Tree Status: {tree.root.status.value}\n')
-
         # Stop ticking once the tree is no longer RUNNING, but keep the node
         # alive so the final state stays visible in the viewer
         if tree.root.status != py_trees.common.Status.RUNNING:

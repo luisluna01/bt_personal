@@ -21,11 +21,15 @@ class DummyTask(BehaviourWithPorts):
     def output_ports(cls):
         return {}
 
+    def setup(self, **kwargs) -> None:
+        # py_trees_ros passes the tree's ROS node to every behaviour's setup()
+        self.ros_logger = kwargs['node'].get_logger()
+
     def initialise(self) -> None:
         self.completion_time = self.get_input('completion_time', default=10.0)
         self.start_time = time.monotonic()
         self.last_print_time = self.start_time
-        print(f'[{self.name}]: performing task... (0.0s)')
+        self.ros_logger.info(f'[{self.name}]: performing task...')
 
     def update(self) -> py_trees.common.Status:
         now = time.monotonic()
@@ -33,13 +37,13 @@ class DummyTask(BehaviourWithPorts):
 
         # Return SUCCESS if completion time reached
         if elapsed >= self.completion_time:
-            print(f'[{self.name}]: task complete! ({elapsed:.1f}s)')
+            self.ros_logger.info(f'[{self.name}]: task complete!')
             return py_trees.common.Status.SUCCESS
 
         # Print every print_period
         if now - self.last_print_time >= self.print_period:
             self.last_print_time = now
-            print(f'[{self.name}]: performing task... ({elapsed:.1f}s)')
+            self.ros_logger.info(f'[{self.name}]: performing task...')
 
         return py_trees.common.Status.RUNNING
 
@@ -47,4 +51,4 @@ class DummyTask(BehaviourWithPorts):
         # INVALID while RUNNING means the task was interrupted rather than finished
         if (new_status == py_trees.common.Status.INVALID
                 and self.status == py_trees.common.Status.RUNNING):
-            print(f'[{self.name}]: halted')
+            self.ros_logger.info(f'[{self.name}]: halted')
