@@ -27,7 +27,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'execute_simple_sequence = py_trees_practice.execute_simple_sequence:main',
+            'reactive_sequence_example = py_trees_practice.reactive_sequence_example:main',
         ],
     },
 )
