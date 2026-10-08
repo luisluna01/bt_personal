@@ -1,5 +1,3 @@
-import time
-
 import py_trees
 from py_trees.ports import BehaviourWithPorts, PortInformation
 
@@ -24,15 +22,19 @@ class DummyTask(BehaviourWithPorts):
     def setup(self, **kwargs) -> None:
         # py_trees_ros passes the tree's ROS node to every behaviour's setup()
         self.ros_logger = kwargs['node'].get_logger()
+        self.clock = kwargs['node'].get_clock()
+
+    def now_sec(self) -> float:
+        return self.clock.now().nanoseconds * 1e-9
 
     def initialise(self) -> None:
         self.completion_time = self.get_input('completion_time', default=10.0)
-        self.start_time = time.monotonic()
+        self.start_time = self.now_sec()
         self.last_print_time = self.start_time
         self.ros_logger.info(f'[{self.name}]: performing task...')
 
     def update(self) -> py_trees.common.Status:
-        now = time.monotonic()
+        now = self.now_sec()
         elapsed = now - self.start_time
 
         # Return SUCCESS if completion time reached
