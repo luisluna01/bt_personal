@@ -27,7 +27,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'reactive_sequence_example = py_trees_practice.reactive_sequence_example:main',
+            'python_bt = py_trees_practice.python_bt:main',
         ],
     },
 )

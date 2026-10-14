@@ -1,0 +1,10 @@
+<root BTCPP_format="4" main_tree_to_execute="SelectorWithMemoryExample">
+    <BehaviorTree ID="SelectorWithMemoryExample">
+        <Selector name="Sequence" memory="true">
+            <DummyCondition name="ConditionA" condition_bool="False"/>
+            <DummyCondition name="ConditionB" condition_bool="False"/>
+            <DummyCondition name="ConditionC" condition_bool="False"/>
+            <DummyTask name="LongRunningTask" completion_time="10.0"/>
+        </Selector>
+    </BehaviorTree>
+</root>
