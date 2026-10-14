@@ -19,7 +19,7 @@ setup(
     maintainer='Luis Luna',
     maintainer_email='luisluna12@utexas.edu',
     description='ROS2 Python Humble pkg for practicing PyTrees concepts',
-    license='TODO: License declaration',
+    license='MIT',
     extras_require={
         'test': [
             'pytest',

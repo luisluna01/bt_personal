@@ -5,7 +5,7 @@
   <version>0.0.0</version>
   <description>ROS2 Python Humble pkg for practicing PyTrees concepts</description>
   <maintainer email="luisluna12@utexas.edu">Luis Luna</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
   <exec_depend>ament_index_python</exec_depend>
   <exec_depend>python3-py-trees</exec_depend>
